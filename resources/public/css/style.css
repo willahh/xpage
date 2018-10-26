@@ -1,2 +1,54 @@
-/* some style */
+.document {
+    background: #333;
+    padding: 10px;
+}
 
+.tools {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    z-index: 1;
+}
+
+.ui.vertical.buttons.tools .button {
+    width: 10px;
+}
+
+.page {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.spread {
+    padding: 10px;
+    display: table;
+    background: #ccc;
+    border: 1Px solid #000;
+    margin: 10px auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spread-inner {
+    display: flex;
+    align-items: center;
+}
+
+.zones {
+    position: relative;
+}
+
+.zone {
+    position: absolute;
+    border: 1Px solid #000;
+}
+
+.toolbar {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    background: #4c4c4c;
+}
