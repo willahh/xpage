@@ -52,3 +52,12 @@
     z-index: 2;
     background: #4c4c4c;
 }
+
+.document-list {
+    position: absolute;
+    background: #fff;
+    border: 1Px solid #000;
+    top: 0;
+    right: 0;
+    z-index: 20;
+}
