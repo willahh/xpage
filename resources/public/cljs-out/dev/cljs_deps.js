@@ -57,8 +57,11 @@ goog.addDependency("../reagent/impl/template.js", ['reagent.impl.template'], ['r
 goog.addDependency("../cljsjs/react-dom/development/react-dom.inc.js", ['react_dom', 'cljsjs.react.dom'], ['react'], {'foreign-lib': true});
 goog.addDependency("../reagent/dom.js", ['reagent.dom'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.debug', 'react_dom']);
 goog.addDependency("../reagent/core.js", ['reagent.core'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'react', 'cljs.core', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug', 'reagent.dom']);
+goog.addDependency("../xpage/state.js", ['xpage.state'], ['reagent.core', 'cljs.core']);
+goog.addDependency("../xpage/dao.js", ['xpage.dao'], ['cljs.tools.reader.edn', 'cljs.core', 'xpage.state']);
+goog.addDependency("../xpage/ui.js", ['xpage.ui'], ['cljs.core', 'xpage.dao', 'xpage.state']);
 goog.addDependency("../xpage/component/modal.js", ['xpage.component.modal'], ['cljs.core']);
-goog.addDependency("../xpage/core.js", ['xpage.core'], ['goog.dom', 'cljs.tools.reader.edn', 'reagent.core', 'cljs.core', 'xpage.component.modal']);
+goog.addDependency("../xpage/core.js", ['xpage.core'], ['goog.dom', 'xpage.ui', 'cljs.tools.reader.edn', 'reagent.core', 'cljs.core', 'xpage.dao', 'xpage.component.modal', 'xpage.state']);
 goog.addDependency("../xpage/core_test.js", ['xpage.core_test'], ['cljs.core', 'cljs.test', 'xpage.core']);
 goog.addDependency("../xpage/test_runner.js", ['xpage.test_runner'], ['cljs.core', 'figwheel.main.testing', 'xpage.core_test']);
 goog.addDependency("../cljs_test_display/favicon.js", ['cljs_test_display.favicon'], ['goog.dom', 'cljs.core', 'goog.object', 'clojure.string']);
