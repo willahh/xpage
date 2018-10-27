@@ -1,4 +1,4 @@
-(ns xpage.component.modal)
+(ns xpage.ui.modal.modal)
 
 (defn modal-html [title id content-html buttons]
   [:div.ui.modal {:id id}

@@ -2,37 +2,26 @@
   (:require
    [goog.dom :as gdom]
    [reagent.core :as reagent :refer [atom]]
-   [xpage.component.modal :as modal]
    [cljs.tools.reader.edn :as edn]
    [xpage.state :refer [app-config
                         document
                         document-list]]
    [xpage.ui :as ui]
-   [xpage.dao :as dao]))
+   [xpage.dao :as dao]
+   [xpage.ui.modal.zone :refer [zone-modal-html]]
+   [xpage.ui.xinterface :refer [tools-html main-toolbar-html]]))
 
 (defn multiply [a b] (* a b))
-
-(defn open-add-zone []
-  (.modal (.$ js/window "#add-zone-modal") "show"))
 
 (defn get-app-element []
   (gdom/getElement "app"))
 
 (defn main-html []
   [:div
-   (modal/modal-html "Title"
-                     "add-zone-modal"
-                     [:div "Contenu"]
-                     [[:div.ui.button {:key "a"
-                                       :on-click (fn [event]
-                                                   (.modal (.$ js/window "#add-zone-modal") "hide"))}
-                       "Cancel"]
-                      [:div.ui.button {:key "b"}
-                       "OK"]])
-   ;; (ui/toolbar-html)
-   (ui/tools-html)
-   (ui/main-toolbar-html)
-   (ui/document-html)])
+   (tools-html)
+   (main-toolbar-html)
+   (ui/document-html)
+   (zone-modal-html)])
 
 (defn init []
   (dao/fetch-document-and-update document "document_a")

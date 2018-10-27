@@ -3,24 +3,20 @@ goog.provide('xpage.core');
 goog.require('cljs.core');
 goog.require('goog.dom');
 goog.require('reagent.core');
-goog.require('xpage.component.modal');
 goog.require('cljs.tools.reader.edn');
 goog.require('xpage.state');
 goog.require('xpage.ui');
 goog.require('xpage.dao');
+goog.require('xpage.ui.modal.zone');
+goog.require('xpage.ui.xinterface');
 xpage.core.multiply = (function xpage$core$multiply(a,b){
 return (a * b);
-});
-xpage.core.open_add_zone = (function xpage$core$open_add_zone(){
-return window.$("#add-zone-modal").modal("show");
 });
 xpage.core.get_app_element = (function xpage$core$get_app_element(){
 return goog.dom.getElement("app");
 });
 xpage.core.main_html = (function xpage$core$main_html(){
-return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),xpage.component.modal.modal_html.call(null,"Title","add-zone-modal",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),"Contenu"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.ui.button","div.ui.button",668900631),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"key","key",-1516042587),"a",new cljs.core.Keyword(null,"on-click","on-click",1632826543),(function (event){
-return window.$("#add-zone-modal").modal("hide");
-})], null),"Cancel"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.ui.button","div.ui.button",668900631),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),"b"], null),"OK"], null)], null)),xpage.ui.tools_html.call(null),xpage.ui.main_toolbar_html.call(null),xpage.ui.document_html.call(null)], null);
+return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),xpage.ui.xinterface.tools_html.call(null),xpage.ui.xinterface.main_toolbar_html.call(null),xpage.ui.document_html.call(null),xpage.ui.modal.zone.zone_modal_html.call(null)], null);
 });
 xpage.core.init = (function xpage$core$init(){
 xpage.dao.fetch_document_and_update.call(null,xpage.state.document,"document_a");

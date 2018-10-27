@@ -2,67 +2,14 @@
   (:require [xpage.state :refer [app-config
                                  document
                                  document-list]]
-            [xpage.dao :as dao]))
-
-(defn open-add-zone []
-  (.modal (.$ js/window "#add-zone-modal") "show"))
+            [xpage.dao :as dao]
+            [xpage.ui.xinterface :refer [tools-html main-toolbar-html]]
+            [xpage.action.zone :refer [open-add-zone]]
+            [xpage.action.document :refer [zoom-in zoom-out]]))
 
 (defn scale-value [value]
   (-> value
       (* (:scale @document))))
-
-(defn zoom-in []
-  (swap! document update-in [:scale] (fn [scale]
-                                       (+ scale (:zoom-step app-config)))))
-
-(defn zoom-out []
-  (swap! document update-in [:scale] (fn [scale]
-                                       (- scale (:zoom-step app-config)))))
-
-(defn tools-html []
-  [:div.tools
-   [:div.ui.vertical.icon.buttons
-    [:button.ui.button 
-     [:i.icon.location.arrow]]
-    [:button.ui.button {:on-click #(zoom-in)}
-     [:i.icon.zoom.in]]
-    [:button.ui.button {:on-click #(zoom-out)}
-     [:i.icon.zoom.out]]]])
-
-(defn main-toolbar-html []
-  [:div.ui.menu.mini.main-toolbar
-
-   [:div.item
-    [:div.ui.dropdown
-     [:div.text "Fichier"]
-     [:i.dropdown.icon]
-     [:div.menu
-      [:button.item "Nouveau"]
-      [:div.item "Ouvrir"
-       [:i.dropdown.icon]
-       [:div.menu
-        (map (fn [doc-name]
-               [:button.item {:on-click
-                              (fn [event]
-                                (let [document-name event.target.innerHTML]
-                                  (dao/fetch-document-and-update document document-name)))}
-                doc-name])
-             @document-list)]]
-      [:button.item "Enregistrer"]]]]
-   
-   (comment 
-     [:div.item 
-      [:div.ui.dropdown
-       [:div.text "Fichier"]
-       [:i.dropdown.icon]
-       [:div.menu
-        (map (fn [doc-name]
-               [:button.item {:on-click
-                              (fn [event]
-                                (let [document-name event.target.innerHTML]
-                                  (dao/fetch-document-and-update document document-name)))}
-                doc-name])
-             @document-list)]]])])
 
 (defn spread-html [spread-id pages]
   [:div.spread
