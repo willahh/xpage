@@ -18,6 +18,7 @@
 
 (defn main-toolbar-html []
   [:div.ui.menu.mini.main-toolbar
+   [:div.item (:document-name @document)] 
    [:div.item
     [:div.ui.dropdown
      [:div.text "Fichier"]

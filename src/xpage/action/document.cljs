@@ -17,8 +17,18 @@
         blob (js/Blob. [(str @document)])
         request (js/XMLHttpRequest.)]
     (.append form-data "document" blob)
+    (comment 
+      (.onreadystatechange request
+                           (fn []
+                             (js/console.log "ready"))))
     (.open request "POST" url)
-    (.send request form-data)))
+    (.send request form-data)
+    ))
 
 (defn save-current-document []
   (save-document (:document-name @document)))
+
+
+
+(comment
+  (def document-name "document_a"))
