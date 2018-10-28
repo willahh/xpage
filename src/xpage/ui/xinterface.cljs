@@ -3,7 +3,7 @@
                                  document
                                  document-list]]
             [xpage.dao :as dao]
-            [xpage.action.document :refer [zoom-in zoom-out]]
+            [xpage.action.document :refer [zoom-in zoom-out save-current-document]]
             [xpage.action.zone :refer [open-add-zone]]))
 
 (defn tools-html []
@@ -18,7 +18,6 @@
 
 (defn main-toolbar-html []
   [:div.ui.menu.mini.main-toolbar
-
    [:div.item
     [:div.ui.dropdown
      [:div.text "Fichier"]
@@ -35,7 +34,7 @@
                                   (dao/fetch-document-and-update document document-name)))}
                 doc-name])
              @document-list)]]
-      [:button.item "Enregistrer"]]]]
+      [:button.item {:on-click #(save-current-document)} "Enregistrer"]]]]
 
    [:div.item
     [:div.ui.dropdown

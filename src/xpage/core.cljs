@@ -18,18 +18,10 @@
 
 (defn main-html []
   [:div
-   (tools-html)
+   (tools-html) 
    (main-toolbar-html)
    (ui/document-html)
    (zone-modal-html)])
-
-(defn init []
-  (dao/fetch-document-and-update document "document_a")
-  (dao/fetch-document-list-and-update document-list)
-  (.ready (js/$) (fn []
-                   (.dropdown (js/$ ".ui.dropdown")))))
-
-(init)
 
 (defn mount [el]
   (reagent/render-component [main-html] el))
@@ -38,10 +30,18 @@
   (when-let [el (get-app-element)]
     (mount el)))
 
-(mount-app-element)
+(defn init []
+  (mount-app-element)
+  (dao/fetch-document-and-update document "document_a")
+  (dao/fetch-document-list-and-update document-list)
+  (.ready (js/$) (fn []
+                   (.dropdown (js/$ ".ui.dropdown")))))
 
-(defn ^:after-load on-reload []
-  (mount-app-element))
+(defonce one-call (do (init)))
+
+
+;; (defn ^:after-load on-reload []
+;;   (mount-app-element))
 
 
 
