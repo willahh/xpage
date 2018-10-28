@@ -1,15 +1,18 @@
 (ns xpage.action.document
   (:require [xpage.state :refer [app-config
-                                 document]]
+                                 document
+                                 session-settings]]
             [cljs.tools.reader.edn :as edn]))
 
 (defn zoom-in []
-  (swap! document update-in [:scale] (fn [scale]
-                                       (+ scale (:zoom-step app-config)))))
+  (swap! session-settings update-in [:scale]
+         (fn [scale]
+           (+ scale (:zoom-step @app-config)))))
 
 (defn zoom-out []
-  (swap! document update-in [:scale] (fn [scale]
-                                       (- scale (:zoom-step app-config)))))
+  (swap! session-settings update-in [:scale]
+         (fn [scale]
+           (- scale (:zoom-step @app-config)))))
 
 (defn save-document [document-name]
   (let [form-data (js/FormData.)

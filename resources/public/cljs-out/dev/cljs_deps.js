@@ -65,11 +65,13 @@ goog.addDependency("../cljs/tools/reader.js", ['cljs.tools.reader'], ['cljs.tool
 goog.addDependency("../cljs/tools/reader/edn.js", ['cljs.tools.reader.edn'], ['cljs.tools.reader.impl.commons', 'cljs.tools.reader', 'goog.string', 'cljs.tools.reader.impl.errors', 'cljs.core', 'cljs.tools.reader.reader_types', 'goog.string.StringBuffer', 'cljs.tools.reader.impl.utils']);
 goog.addDependency("../xpage/action/document.js", ['xpage.action.document'], ['cljs.tools.reader.edn', 'cljs.core', 'xpage.state']);
 goog.addDependency("../xpage/dao.js", ['xpage.dao'], ['cljs.tools.reader.edn', 'cljs.core', 'xpage.state']);
-goog.addDependency("../xpage/ui/xinterface.js", ['xpage.ui.xinterface'], ['xpage.action.zone', 'cljs.core', 'xpage.action.document', 'xpage.dao', 'xpage.state']);
+goog.addDependency("../xpage/action/page.js", ['xpage.action.page'], ['cljs.core', 'xpage.state']);
+goog.addDependency("../xpage/ui/xinterface.js", ['xpage.ui.xinterface'], ['xpage.action.zone', 'cljs.core', 'xpage.action.document', 'xpage.dao', 'xpage.action.page', 'xpage.state']);
 goog.addDependency("../xpage/ui.js", ['xpage.ui'], ['xpage.ui.xinterface', 'xpage.action.zone', 'cljs.core', 'xpage.action.document', 'xpage.dao', 'xpage.state']);
 goog.addDependency("../xpage/ui/modal/modal.js", ['xpage.ui.modal.modal'], ['cljs.core']);
 goog.addDependency("../xpage/ui/modal/zone.js", ['xpage.ui.modal.zone'], ['xpage.action.zone', 'cljs.core', 'xpage.ui.modal.modal', 'xpage.state']);
 goog.addDependency("../xpage/core.js", ['xpage.core'], ['xpage.ui.xinterface', 'goog.dom', 'xpage.ui', 'cljs.tools.reader.edn', 'reagent.core', 'cljs.core', 'xpage.dao', 'xpage.state', 'xpage.ui.modal.zone']);
+goog.addDependency("../xpage/ui/tools.js", ['xpage.ui.tools'], ['cljs.core']);
 goog.addDependency("../xpage/core_test.js", ['xpage.core_test'], ['cljs.core', 'cljs.test', 'xpage.core']);
 goog.addDependency("../xpage/test_runner.js", ['xpage.test_runner'], ['cljs.core', 'figwheel.main.testing', 'xpage.core_test']);
 goog.addDependency("../figwheel/main/generated/dev_auto_test_runner.js", ['figwheel.main.generated.dev_auto_test_runner'], ['cljs.core', 'cljs.test', 'xpage.core_test', 'cljs_test_display.core']);

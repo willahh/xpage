@@ -11,8 +11,8 @@ var form_data = (new window.FormData(form));
 var entries = form_data.entries();
 var data = cljs.core.js__GT_clj.call(null,Array.from(entries));
 return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.call(null,((function (form,form_data,entries,data){
-return (function (p1__38461_SHARP_){
-return cljs.core.PersistentArrayMap.createAsIfByAssoc([cljs.core.keyword.call(null,cljs.core.first.call(null,p1__38461_SHARP_)),cljs.core.second.call(null,p1__38461_SHARP_)]);
+return (function (p1__41732_SHARP_){
+return cljs.core.PersistentArrayMap.createAsIfByAssoc([cljs.core.keyword.call(null,cljs.core.first.call(null,p1__41732_SHARP_)),cljs.core.second.call(null,p1__41732_SHARP_)]);
 });})(form,form_data,entries,data))
 ,data));
 });

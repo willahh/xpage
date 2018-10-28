@@ -1,20 +1,35 @@
 (ns xpage.ui.xinterface
   (:require [xpage.state :refer [app-config
                                  document
-                                 document-list]]
+                                 document-list
+                                 session-settings]]
             [xpage.dao :as dao]
             [xpage.action.document :refer [zoom-in zoom-out save-current-document]]
-            [xpage.action.zone :refer [open-add-zone]]))
+            [xpage.action.zone :refer [open-add-zone]]
+            [xpage.action.page :refer [pointer-tool rectangle-tool]]))
+
+(defn- tools-class-name [tool-active-kw class-name]
+  (let [active-class-name
+        (when (= tool-active-kw (:tool-active @session-settings))
+          " active")]
+    (str class-name active-class-name)))
 
 (defn tools-html []
   [:div.tools
    [:div.ui.vertical.icon.buttons
-    [:button.ui.button 
+    [:button {:className (tools-class-name :xpage.ui.tools/pointer "ui button")
+              :on-click #(pointer-tool)}
      [:i.icon.location.arrow]]
-    [:button.ui.button {:on-click #(zoom-in)}
+    [:button {:className (tools-class-name :xpage.ui.tools/hand "ui button")}
+     [:i.icon.hand.paper.outline]]
+    [:button {:className (tools-class-name :xpage.ui.tools/zoom-in "ui button") :on-click #(zoom-in)}
      [:i.icon.zoom.in]]
-    [:button.ui.button {:on-click #(zoom-out)}
-     [:i.icon.zoom.out]]]])
+    [:button {:className (tools-class-name :xpage.ui.tools/zoom-in "ui button")
+              :on-click #(zoom-out)}
+     [:i.icon.zoom.out]]
+    [:button {:className (tools-class-name :xpage.ui.tools/rectangle "ui button")
+              :on-click #(rectangle-tool)}
+     [:i.icon.square.outline]]]])
 
 (defn main-toolbar-html []
   [:div.ui.menu.mini.main-toolbar

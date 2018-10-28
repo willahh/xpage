@@ -18,7 +18,7 @@
 
 (defn main-html []
   [:div
-   (tools-html) 
+   (tools-html)
    (main-toolbar-html)
    (ui/document-html)
    (zone-modal-html)])

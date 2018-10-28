@@ -1,7 +1,8 @@
 (ns xpage.ui
   (:require [xpage.state :refer [app-config
                                  document
-                                 document-list]]
+                                 document-list
+                                 session-settings]]
             [xpage.dao :as dao]
             [xpage.ui.xinterface :refer [tools-html main-toolbar-html]]
             [xpage.action.zone :refer [open-add-zone]]
@@ -9,7 +10,7 @@
 
 (defn scale-value [value]
   (-> value
-      (* (:scale @document))))
+      (* (:scale @session-settings))))
 
 (defn spread-html [spread-id pages]
   [:div.spread
