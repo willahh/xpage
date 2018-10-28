@@ -18,19 +18,3 @@
            (fn [zone-record-list]
              (conj zone-record-list zone-record)))))
 
-
-
-(comment
-  (->> (:zone @document)
-       (map :zone-id)
-       last
-       inc)
-
-
-  (swap! document update-in [:zone]
-         (fn [zone-record-list]
-           (conj zone-record-list
-                 {:zone-id 10,
-                  :page-id 2,
-                  :bounding-box {:top 0, :left 0, :width 20, :height 50}}))))
-

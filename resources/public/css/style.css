@@ -1,3 +1,7 @@
+body {
+    background: #333;
+}
+
 .document {
     background: #333;
     padding: 58px 10px;
@@ -5,7 +9,7 @@
 
 .tools {
     position: fixed;
-    top: 50px;
+    top: 64px;
     left: 0;
     z-index: 1;
 }
@@ -71,4 +75,23 @@
     top: 0;
     left: 0;
     z-index: 20;
+}
+
+
+.info {
+    position: fixed;
+    top: 39px;
+    left: 0;
+    width: 100%;
+    background: #333;
+    z-index: 10;
+    color: #fff;
+    padding: 6px;
+    font-size: 10px;
+}
+
+.info > .item {
+    background: #000;
+    padding: 3px 6px;
+    margin: 0 10px;
 }

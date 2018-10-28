@@ -27,8 +27,12 @@
          :scale 1
 
          ;; Active tool
-         :tool-active :xpage.ui.tools/pointer
-         
-         }))
+         :tool-active :xpage.ui.tools/pointer}))
+
+(defonce js-event-info
+  (atom {
+         :mouse-event nil
+         :screen-x 0
+         :screen-y 0}))
 
 (def document-list (atom []))

@@ -1,27 +1,14 @@
 (ns ^:figwheel-hooks xpage.core
-  (:require
-   [goog.dom :as gdom]
-   [reagent.core :as reagent :refer [atom]]
-   [cljs.tools.reader.edn :as edn]
-   [xpage.state :refer [app-config
-                        document
-                        document-list]]
-   [xpage.ui :as ui]
-   [xpage.dao :as dao]
-   [xpage.ui.modal.zone :refer [zone-modal-html]]
-   [xpage.ui.xinterface :refer [tools-html main-toolbar-html]]))
+  (:require [goog.dom :as gdom]
+            [reagent.core :as reagent]
+            [xpage.dao :as dao]
+            [xpage.state :refer [document document-list]]
+            [xpage.ui.main :refer [main-html]]))
 
 (defn multiply [a b] (* a b))
 
 (defn get-app-element []
   (gdom/getElement "app"))
-
-(defn main-html []
-  [:div
-   (tools-html)
-   (main-toolbar-html)
-   (ui/document-html)
-   (zone-modal-html)])
 
 (defn mount [el]
   (reagent/render-component [main-html] el))
@@ -38,45 +25,3 @@
                    (.dropdown (js/$ ".ui.dropdown")))))
 
 (defonce one-call (do (init)))
-
-
-;; (defn ^:after-load on-reload []
-;;   (mount-app-element))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(comment
-  (def page-record (second (:page @document)))
-  (def zone-record (first (:zone @document)))
-  (def doc-name "document_a")
-
-  ;; Zone list from page-id
-  (let [page-id (:page-id page-record)]
-    (zone-list-from-page-id page-id))
-
-
-  ;; zone-html rom page-id
-  (let [page-id (:page-id page-record)
-        zone-list (zone-list-from-page-id page-id)]
-    (map zone-html zone-list))
-
-
-
-  )
-
-
-
-
