@@ -12,7 +12,8 @@
                  [ring "1.6.3"]
                  [compojure "1.6.1"]
                  [cljs-ajax "0.7.4"]]
-  
+
+  :main xpage.core
   :source-paths ["src"]
   
   :aliases {"fig"       ["trampoline" "run" "-m" "figwheel.main"]
