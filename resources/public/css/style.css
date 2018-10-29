@@ -47,7 +47,7 @@ body {
 
 .zone {
     position: absolute;
-    border: 1Px solid #000;
+    border: 1Px solid #83b6ff;
 }
 
 .toolbar {
@@ -107,6 +107,11 @@ body {
     height: 200px;
 }
 
+.ui.card.page-panel > .content {
+    max-height: 100%;
+    overflow: auto;
+}
+
 .ui.card.page-panel .spread {
     background: transparent;
     border-radius: 0;
@@ -126,4 +131,8 @@ body {
 .ui.card.page-panel .label {
     text-align: center;
     font-size: 9px;
+}
+
+.ui.card.page-panel .page.active > .page-inner {
+    border-color: #000;
 }

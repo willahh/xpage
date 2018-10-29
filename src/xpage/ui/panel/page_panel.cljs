@@ -5,16 +5,25 @@
                                  session-settings]]
             [xpage.model.document-model :refer [add-page-record]]))
 
-(defn scale-value [value]
+(defn- scale-value [value]
   (-> value
       (* 0.1)))
 
+(defn- update-active-page [page-num]
+  (swap! session-settings update-in [:active-page] (fn [] page-num)))
+
 (defn page-html [page-record]
-  [:div.page {:key (:page-id page-record)
-              }
-   [:div.page-inner {:style {:width (scale-value (:page-width @document))
-                             :height (scale-value (:page-height @document))}}]
-   [:div.label (:num page-record)]])
+  (let [page-class-name (str "page"
+                             (when (= (:num page-record)
+                                      (:active-page @session-settings))
+                               " active"))]
+    [:div {:className page-class-name
+           :key (:page-id page-record)
+           :on-click #(update-active-page (:num page-record))}
+     [:div.page-inner {:style
+                       {:width (scale-value (:page-width @document))
+                        :height (scale-value (:page-height @document))}}]
+     [:div.label (:num page-record)]]))
 
 (defn spread-html [spread-id pages]
   [:div.spread
@@ -43,10 +52,5 @@
      [:i.icon.add]]]])
 
 
-
-
-
-
-
-
-
+(comment
+  (def page-record (first (:page @document))))

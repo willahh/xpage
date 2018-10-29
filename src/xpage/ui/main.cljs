@@ -4,13 +4,14 @@
             [xpage.ui.panel.page-panel :refer [page-panel-html]]
             [xpage.ui.modal.zone :refer [zone-modal-html]]
             [xpage.ui.xinterface :refer [tools-html main-toolbar-html]]
+            [xpage.ui.document :refer [document-html]]            
             [xpage.ui.info :refer [info-html]]))
 
 (defn main-html []
   [:div
    (tools-html)
    (main-toolbar-html)
-   (ui/document-html)
+   (document-html)
    (zone-modal-html)
    (info-html)
    (page-panel-html)])

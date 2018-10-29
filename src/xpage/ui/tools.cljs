@@ -5,4 +5,3 @@
 (def zoom-in ::zoom-in)
 (def zoom-out ::zoom-out)
 (def rectangle ::rectangle)
-

@@ -4,6 +4,7 @@
 (defonce app-config
   (atom {:zoom-step 0.1}))
 
+;; document information
 (defonce document
   (atom {:document-name "document_b",
          :text "Hello world!",
@@ -21,13 +22,21 @@
                 {:zone-id 3, :page-id 1, :bounding-box {:top 2, :left 3, :width 4, :height 5}}
                 ]}))
 
+;; User session settings
 (defonce session-settings
   (atom {
          ;; Zoom scale
          :scale 1
 
          ;; Active tool
-         :tool-active :xpage.ui.tools/pointer}))
+         :tool-active :xpage.ui.tools/pointer
+
+         ;; Active page number
+         :active-page 1
+
+         ;; Selected zone id list
+         :selected-zone-id-list []
+         }))
 
 (defonce js-event-info
   (atom {
