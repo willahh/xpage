@@ -21,18 +21,18 @@
   "Tools panel which contains main navigation tools like pointer hand zoom ..."
   [:div.tools
    [:div.ui.vertical.icon.buttons
-    [:button {:className (tools-class-name :xpage.ui.tools/pointer "ui button")
+    [:button {:className (tools-class-name :xpage.constant.tool/pointer "ui button")
               :on-click #(pointer-tool)
               :data-tooltip "a"}
      [:i.icon.location.arrow]]
-    [:button {:className (tools-class-name :xpage.ui.tools/hand "ui button")}
+    [:button {:className (tools-class-name :xpage.constant.tool/hand "ui button")}
      [:i.icon.hand.paper.outline]]
-    [:button {:className (tools-class-name :xpage.ui.tools/zoom-in "ui button") :on-click #(document/zoom-in)}
+    [:button {:className (tools-class-name :xpage.constant.tool/zoom-in "ui button") :on-click #(document/zoom-in)}
      [:i.icon.zoom.in]]
-    [:button {:className (tools-class-name :xpage.ui.tools/zoom-in "ui button")
+    [:button {:className (tools-class-name :xpage.constant.tool/zoom-in "ui button")
               :on-click #(document/zoom-out)}
      [:i.icon.zoom.out]]
-    [:button {:className (tools-class-name :xpage.ui.tools/rectangle "ui button")
+    [:button {:className (tools-class-name :xpage.constant.tool/rectangle "ui button")
               :on-click #(rectangle-tool)}
      [:i.icon.square.outline]]]])
 

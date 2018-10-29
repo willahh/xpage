@@ -1,11 +1,11 @@
 (ns ^:figwheel-hooks xpage.core
   (:require [goog.dom :as gdom]
             [reagent.core :as reagent]
-            [xpage.dao :as dao]
+            [xpage.debug :as debug]
+            [xpage.model.dao :as dao]
             [xpage.state :refer [document document-list]]
-            [xpage.ui.main :refer [main-html]]))
-
-(defn multiply [a b] (* a b))
+            [xpage.ui.main :refer [main-html]]
+            [xpage.javascript-event :refer [init-main-js]]))
 
 (defn get-app-element []
   (gdom/getElement "app"))

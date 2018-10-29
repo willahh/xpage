@@ -1,7 +1,7 @@
 (ns xpage.ui.page
   (:require [xpage.state :refer [document
                                  session-settings]]
-            [xpage.dao :as dao]
+            [xpage.model.dao :as dao]
             [xpage.ui.zone :refer [zone-html]]))
 
 (defn scale-value [value]

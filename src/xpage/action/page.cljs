@@ -8,9 +8,9 @@
   "Use the pointer tool"
   (swap! session-settings update-in [:tool-active]
          (fn []
-           :xpage.ui.tools/pointer)))
+           :xpage.constant.tool/pointer)))
 
 (defn rectangle-tool []
   "Use the rectangle tool"
   (swap! session-settings update-in [:tool-active]
-         (fn [] :xpage.ui.tools/rectangle)))
+         (fn [] :xpage.constant.tool/rectangle)))

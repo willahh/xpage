@@ -50,6 +50,10 @@ body {
     border: 1Px solid #83b6ff;
 }
 
+.zone.active {
+    border: 2px solid #0b2e61;
+}
+
 .toolbar {
     position: fixed;
     width: 100%;

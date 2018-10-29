@@ -29,7 +29,7 @@
          :scale 1
 
          ;; Active tool
-         :tool-active :xpage.ui.tools/pointer
+         :tool-active :xpage.constant.tool/pointer
 
          ;; Active page number
          :active-page 1
@@ -42,6 +42,7 @@
   (atom {
          :mouse-event nil
          :screen-x 0
-         :screen-y 0}))
+         :screen-y 0
+         :click-event nil}))
 
 (def document-list (atom []))
