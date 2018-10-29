@@ -1,7 +1,8 @@
 (ns xpage.action.page
   (:require [xpage.state :refer [app-config
                                  document
-                                 session-settings]]))
+                                 session-settings]]
+            [xpage.model.document-model :as document-model]))
 
 (defn pointer-tool []
   "Use the pointer tool"
