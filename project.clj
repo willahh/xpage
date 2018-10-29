@@ -14,6 +14,8 @@
                  [cljs-ajax "0.7.4"]]
   
   :source-paths ["src"]
+
+  :profiles {:uberjar {:aot :all}}
   
   :aliases {"fig"       ["trampoline" "run" "-m" "figwheel.main"]
             "fig:build" ["trampoline" "run" "-m" "figwheel.main" "-b" "dev" "-r"]

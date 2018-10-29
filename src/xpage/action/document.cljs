@@ -28,8 +28,9 @@
                              (js/console.log "ready"))))
     (.open request "POST" url)
     (.send request form-data)
-    (alert/success locale/document-save-success)
-    ))
+    
+    ;; TODO set this on a success callback
+    (alert/success locale/document-save-success)))
 
 (defn save-current-document []
   (save-document (:document-name @document)))
