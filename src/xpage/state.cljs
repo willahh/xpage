@@ -20,7 +20,9 @@
          :zone [{:zone-id 1, :page-id 2, :bounding-box {:top 0, :left 0, :width 10, :height 25}}
                 {:zone-id 2, :page-id 2, :bounding-box {:top 30, :left 10, :width 10, :height 10}}
                 {:zone-id 3, :page-id 1, :bounding-box {:top 2, :left 3, :width 4, :height 5}}
-                ]}))
+                ]
+         :layer [{:layer-id 1 :name "Layer 1" :color "#ff00ff"}
+                 {:layer-id 2 :name "Layer 2" :color "#00ff00"}]}))
 
 ;; User session settings
 (defonce session-settings

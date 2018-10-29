@@ -140,3 +140,33 @@ body {
 .ui.card.page-panel .page.active > .page-inner {
     border-color: #000;
 }
+
+
+
+
+
+
+
+
+.ui.card.layer-panel {
+    position: fixed;
+    top: 67px;
+    right: 140px;
+    z-index: 500;
+    background: #fff;
+    width: 100px;
+    height: 200px;
+}
+
+.ui.card.layer-panel > .content {
+    padding: 0;
+}
+
+.ui.card .ui.table {
+    border-radius: 0;
+}
+
+.ui.card .ui.table td {
+    padding: 4px;
+    font-size: 10px;
+}
