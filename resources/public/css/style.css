@@ -166,6 +166,10 @@ body {
     border-radius: 0;
 }
 
+.ui.card.layer-panel .ui.table td {
+    padding: 1px;
+}
+
 .ui.card .ui.table td {
     padding: 4px;
     font-size: 10px;

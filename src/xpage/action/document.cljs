@@ -1,8 +1,10 @@
 (ns xpage.action.document
-  (:require [xpage.state :refer [app-config
+  (:require [cljs.tools.reader.edn :as edn]
+            [xpage.state :refer [app-config
                                  document
                                  session-settings]]
-            [cljs.tools.reader.edn :as edn]))
+            [xpage.ui.alert :as alert]
+            [xpage.locale.fr :as locale]))
 
 (defn zoom-in []
   (swap! session-settings update-in [:scale]
@@ -26,6 +28,7 @@
                              (js/console.log "ready"))))
     (.open request "POST" url)
     (.send request form-data)
+    (alert/success locale/document-save-success)
     ))
 
 (defn save-current-document []
