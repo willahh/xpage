@@ -1,7 +1,6 @@
 (ns xpage.core-test
-  (:require
-   [cljs.test :refer-macros [deftest is testing]]
-   ))
+  (:require [cljs.test :refer-macros [deftest is testing]]
+            ))
 
 ;; (deftest multiply-test
 ;;   (is (= (* 1 2) (multiply 1 2))))

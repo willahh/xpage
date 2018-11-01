@@ -1,5 +1,9 @@
 (ns xpage.javascript-event
-  (:require [xpage.state :refer [js-event-info]]))
+  (:require [xpage.state :refer [js-event-info]]
+            [cljs.core.async :refer [chan put! take! >! <! buffer dropping-buffer sliding-buffer timeout close! alts!]]))
+
+
+
 
 ;; Main javascript event delegation
 (defonce init-main-js

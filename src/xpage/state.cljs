@@ -48,3 +48,15 @@
          :click-event nil}))
 
 (def document-list (atom []))
+
+
+
+;; State history
+(def document-history (atom {:entries [@document]}))
+(add-watch document :history
+           (fn [_ _ _ n]
+             (js/console.log "watch" n)
+             (let [entries @document-history]
+               (when-not (= (last entries) n)
+                 (swap! document-history
+                        #(update-in % [:entries] conj n))))))

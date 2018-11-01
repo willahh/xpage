@@ -73,3 +73,35 @@
                (->> (conj (into [] spreads)
                           spread-record)
                     (sort-by :spread-id)))))))
+
+(defn find-spread-from-page-id [page-id]
+  "Find spread record from page id"
+  (first
+   (filter (fn [spread]
+             (some #{page-id} (:page-id-list spread)))
+           (:spread @document))))
+
+(defn delete-page-from-spread [page-id]
+  "Delete page-id from spread, delete spread if page-id-list is empty"
+  (let [spreads (map (fn [spread]
+                       (update-in spread [:page-id-list]
+                                  (fn [m]
+                                    (into []
+                                          (filter #(not= page-id %) m)))))
+                     (:spread @document))]
+    (into [] (filter (fn [m]
+                       (> (count (:page-id-list m)) 0))
+                     spreads))))
+
+(defn delete-page-record! [page-id]
+  "Delete a page record"
+  (let [pages (filter #(not= (:page-id %) page-id) (:page @document))
+        spreads (delete-page-from-spread page-id)
+        zones (filter #(not= (:page-id %) page-id) (:zone @document))]
+    (swap! document update-in [:page] (fn [] pages))
+    (swap! document update-in [:spread] (fn [] spreads))
+    (swap! document update-in [:zone] (fn [] zones))))
+
+
+(comment
+  (def page-id 2))

@@ -1,9 +1,9 @@
 (ns xpage.ui.panel.page-panel
-  (:require [xpage.state :refer [app-config
-                                 document
-                                 document-list
-                                 session-settings]]
-            [xpage.model.document-model :refer [add-page-record]]))
+  (:require [xpage.state :as state :refer [app-config
+                                           document
+                                           document-list
+                                           session-settings]]
+            [xpage.model.document-model :refer [add-page-record delete-page-record!]]))
 
 (defn- scale-value [value]
   (-> value
@@ -49,8 +49,10 @@
    [:div.content (spreads-html)]
    [:div.ui.bottom.attached.buttons
     [:button.ui.button {:on-click #(add-page-record)}
-     [:i.icon.add]]]])
+     [:i.icon.add]]
+    [:button.ui.button {:on-click #(delete-page-record!
+                                    (:active-page @state/session-settings))}
+     [:i.icon.delete]]]])
 
 
-(comment
-  (def page-record (first (:page @document))))
+

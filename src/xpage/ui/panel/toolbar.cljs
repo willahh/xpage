@@ -3,7 +3,8 @@
                                  document-list]]
             [xpage.model.dao :as dao]
             [xpage.action.document :refer [save-current-document]]
-            [xpage.action.zone :refer [open-add-zone]]))
+            [xpage.action.zone :refer [open-add-zone]]
+            [xpage.action.history :refer [open-history-modal]]))
 
 (defn main-toolbar-html []
   [:div.ui.menu.mini.main-toolbar
@@ -33,7 +34,8 @@
      [:i.icon.dropdown]
      [:div.menu
       [:div.item "Annuler"]
-      [:div.item "Rétablir"]]]]
+      [:div.item "Rétablir"]
+      [:div.item {:on-click #(open-history-modal)} "Historique"]]]]
 
    [:div.item
     [:div.ui.dropdown
