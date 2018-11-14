@@ -101,7 +101,3 @@
     (swap! document update-in [:page] (fn [] pages))
     (swap! document update-in [:spread] (fn [] spreads))
     (swap! document update-in [:zone] (fn [] zones))))
-
-
-(comment
-  (def page-id 2))

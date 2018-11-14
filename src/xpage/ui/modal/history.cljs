@@ -6,7 +6,8 @@
 (def modal-id "modal-history")
 
 (defn- history-row-info [history-row]
-  {:page-count (-> history-row :page count)
+  {:id (rand-int 9999999999)
+   :page-count (-> history-row :page count)
    :zone-count (-> history-row :zone count)
    :layer-count (-> history-row :layer count)})
 
@@ -26,7 +27,7 @@
              [:th "layer-count"]]]
            [:tbody
             (map (fn [m]
-                   [:tr
+                   [:tr {:key (:id m)}
                     [:td ""]
                     [:td (:page-count m)]
                     [:td (:zone-count m)]
