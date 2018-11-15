@@ -89,14 +89,14 @@
 
 
 
-(go (while true
-      (let [event (<! mouse-move-channel)]
-        (js/console.log event))))
+;; (go (while true
+;;       (let [event (<! mouse-move-channel)]
+;;         (js/console.log event))))
 
-(go (while true
-      (let [event (<! mouse-down-channel)]
+;; (go (while true
+;;       (let [event (<! mouse-down-channel)]
 
-        (js/console.log event))))
+;;         (js/console.log event))))
 
 
 
